@@ -20,3 +20,6 @@
 
 - **Room**: Para la persistencia de datos y gestión de la base de datos local.
 - **MVVM**: Para una mejor separación de responsabilidades y facilitar el mantenimiento del código.
+
+## Caracteristicas por desarrollar
+- **Envio de notificaciones**:
