@@ -1,0 +1,22 @@
+# Simple Reminder
+
+**Simple Reminder** es una aplicación de gestión de tareas diseñada para ayudar a los usuarios a organizar sus recordatorios de manera eficiente y sencilla.
+
+## Pantalla principal
+
+![Pantalla principal de la aplicación modo claro](https://raw.githubusercontent.com/ErikMobileDev/Simple-Reminder-App/refs/heads/master/images/light_app.png) ![Pantalla principal de la aplicación modo oscuro](https://raw.githubusercontent.com/ErikMobileDev/Simple-Reminder-App/refs/heads/master/images/dark_app.png)
+
+## Características
+
+- **Agregar recordatorios**: Permite a los usuarios agregar nuevos recordatorios de forma sencilla.
+- **Eliminar recordatorios**: Los usuarios pueden eliminar recordatorios que ya no necesitan.
+- **Persistencia de datos**: Los recordatorios se mantienen incluso después de cerrar la aplicación.
+- **Interfaz intuitiva**: Diseño limpio y fácil de usar que mejora la experiencia del usuario.
+- **Multilenguaje**: Soporta los siguientes idiomas: Inglés y Español.
+- **Navegación**: Interacción entre diferentes secciones de la aplicación.
+- **Modo claro y oscuro**: Permite a los usuarios elegir entre un diseño claro u oscuro según su preferencia.
+
+## Tecnologías Utilizadas
+
+- **Room**: Para la persistencia de datos y gestión de la base de datos local.
+- **MVVM**: Para una mejor separación de responsabilidades y facilitar el mantenimiento del código.

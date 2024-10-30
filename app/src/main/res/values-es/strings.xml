@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="agregar_tarea">Nuevo Recordatorio</string>
+    <string name="description">Descripción</string>
+    <string name="app_name">Recordatorio Simple</string>
+    <string name="selecciona_la_fecha">Fecha</string>
+    <string name="selecciona_la_hora">Hora</string>
+    <string name="guardar_tarea">Guardar</string>
+    <string name="recordatorios">Recordatorios</string>
+    <string name="editar_tarea">Editar Recordatorio</string>
+</resources>

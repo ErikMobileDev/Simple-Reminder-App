@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Simple Reminder</string>
+    <string name="agregar_tarea">New Reminder</string>
+    <string name="description">Description</string>
+    <string name="selecciona_la_fecha">Date</string>
+    <string name="selecciona_la_hora">Hour</string>
+    <string name="guardar_tarea">Guardar</string>
+    <string name="recordatorios">Reminders</string>
+    <string name="editar_tarea">Edit Reminder</string>
+</resources>
