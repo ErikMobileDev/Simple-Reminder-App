@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -25,6 +26,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -32,6 +34,7 @@ import com.erikmobiledev.cronoapp.R
 import com.erikmobiledev.simplereminder.components.FloatButton
 import com.erikmobiledev.simplereminder.components.MainTitle
 import com.erikmobiledev.simplereminder.model.Tasks
+import com.erikmobiledev.simplereminder.notifications.NotificationWorker
 import com.erikmobiledev.simplereminder.viewModels.TasksViewModel
 import me.saket.swipe.SwipeAction
 import me.saket.swipe.SwipeableActionsBox
@@ -90,11 +93,17 @@ fun ContentHomeView(it: PaddingValues, navController: NavController, tasksViewMo
                 }
             }
         }
+        val context = LocalContext.current
+
+        /*Button(onClick = { NotificationWorker.releaseNotification(context) }) {
+            Text(text = "Background Notification")
+        }*/
     }
 }
 
 @Composable
 fun TaskItemCard(task: Tasks) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -123,7 +132,6 @@ fun TaskItemCard(task: Tasks) {
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface
             )
-
         }
     }
 }
