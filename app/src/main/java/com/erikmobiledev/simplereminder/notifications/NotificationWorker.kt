@@ -36,7 +36,7 @@ class NotificationWorker(context: Context, params: WorkerParameters): Worker(con
     }
 
     companion object{
-        fun releaseNotification(context: Context){
+        fun releaseNotification(context: Context, delayInMillis: Long) {
             val constraints = Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
                 .setRequiresCharging(false)
@@ -45,8 +45,9 @@ class NotificationWorker(context: Context, params: WorkerParameters): Worker(con
 
             val notificationWork = OneTimeWorkRequestBuilder<NotificationWorker>()
                 .setConstraints(constraints)
-                .setInitialDelay(3, TimeUnit.SECONDS)
+                .setInitialDelay(delayInMillis, TimeUnit.MILLISECONDS)
                 .build()
+
             WorkManager.getInstance(context).enqueue(notificationWork)
         }
     }

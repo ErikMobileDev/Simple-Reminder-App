@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.Check
@@ -42,6 +43,7 @@ import com.erikmobiledev.simplereminder.components.MainTitle
 import com.erikmobiledev.simplereminder.model.Tasks
 import com.erikmobiledev.simplereminder.viewModels.TasksViewModel
 import java.util.Calendar
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,47 +53,45 @@ fun AddView(navController: NavController, tasksViewModel: TasksViewModel) {
     val selectedDate = remember { mutableStateOf("") }
     val selectedTime = remember { mutableStateOf("") }
 
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = { MainTitle(title = stringResource(R.string.agregar_tarea)) },
-                navigationIcon = {
-                    MainIconButton(icon = Icons.Default.ArrowBack) {
-                        navController.popBackStack()
-                    }
-                },
-                colors = TopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
-                    titleContentColor = MaterialTheme.colorScheme.onBackground,
-                    actionIconContentColor = Color.White,
-                    scrolledContainerColor = Color.White
-                )
-            )
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    tasksViewModel.addTask(
-                        Tasks(
-                            title = textState.value,
-                            date = selectedDate.value,
-                            time = selectedTime.value
-                        )
-                    )
-                    navController.popBackStack()
-                },
-                containerColor = MaterialTheme.colorScheme.primary
+    // Para notificaciones
+    val context = LocalContext.current
 
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = stringResource(R.string.guardar_tarea)
+    Scaffold(topBar = {
+        CenterAlignedTopAppBar(
+            title = { MainTitle(title = stringResource(R.string.agregar_tarea)) },
+            navigationIcon = {
+                MainIconButton(icon = Icons.AutoMirrored.Filled.ArrowBack) {
+                    navController.popBackStack()
+                }
+            },
+            colors = TopAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
+                titleContentColor = MaterialTheme.colorScheme.onBackground,
+                actionIconContentColor = Color.White,
+                scrolledContainerColor = Color.White
+            )
+        )
+    }, containerColor = MaterialTheme.colorScheme.background, floatingActionButton = {
+        FloatingActionButton(
+            onClick = {
+                tasksViewModel.addTask(
+                    Tasks(
+                        title = textState.value,
+                        date = selectedDate.value,
+                        time = selectedTime.value
+                    ), context
                 )
-            }
+                navController.popBackStack()
+            }, containerColor = MaterialTheme.colorScheme.primary
+
+        ) {
+            Icon(
+                imageVector = Icons.Default.Check,
+                contentDescription = stringResource(R.string.guardar_tarea)
+            )
         }
-    ) {
+    }) {
         ContentAddView(it, textState, selectedDate, selectedTime)
     }
 }
@@ -110,8 +110,7 @@ fun ContentAddView(
     Column(
         modifier = Modifier
             .padding(it)
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center
+            .fillMaxSize(), verticalArrangement = Arrangement.Center
     ) {
         MainTextField(
             textState.value,
@@ -144,8 +143,7 @@ fun ContentAddView(
                     Text(
                         text = if (selectedDate.value.isNotEmpty()) selectedDate.value else stringResource(
                             R.string.selecciona_la_fecha
-                        ),
-                        color = Color.White
+                        ), color = Color.White
                     )
                 }
             }
@@ -157,11 +155,8 @@ fun ContentAddView(
                 val calendar = Calendar.getInstance()
                 TimePickerDialog(
                     context, { _, hourOfDay, minute ->
-                        selectedTime.value = String.format("%02d:%02d", hourOfDay, minute)
-                    },
-                    calendar.get(Calendar.HOUR_OF_DAY),
-                    calendar.get(Calendar.MINUTE),
-                    true
+                        selectedTime.value = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute)
+                    }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
                 ).show()
             }) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -174,8 +169,7 @@ fun ContentAddView(
                     Text(
                         text = if (selectedTime.value.isNotEmpty()) selectedTime.value else stringResource(
                             R.string.selecciona_la_hora
-                        ),
-                        color = Color.White
+                        ), color = Color.White
                     )
                 }
             }
