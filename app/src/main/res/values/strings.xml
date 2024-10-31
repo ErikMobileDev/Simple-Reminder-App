@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Simple Reminder</string>
+    <string name="app_name" translatable="false">Simple Reminder</string>
     <string name="agregar_tarea">New Reminder</string>
     <string name="description">Description</string>
     <string name="selecciona_la_fecha">Date</string>
     <string name="selecciona_la_hora">Hour</string>
-    <string name="guardar_tarea">Guardar</string>
+    <string name="guardar_tarea">Save</string>
     <string name="recordatorios">Reminders</string>
     <string name="editar_tarea">Edit Reminder</string>
+    <string name="notification_title" translatable="false">Simple Reminder</string>
+    <string name="notification_desc">Didn\'t you have something to do at this time?</string>
 </resources>

@@ -2,6 +2,7 @@ package com.erikmobiledev.simplereminder.notifications
 
 import android.app.NotificationManager
 import android.content.Context
+import androidx.compose.ui.res.stringResource
 import androidx.core.app.NotificationCompat
 import androidx.work.Constraints
 import androidx.work.NetworkType
@@ -21,12 +22,15 @@ class NotificationWorker(context: Context, params: WorkerParameters): Worker(con
     }
 
     private fun showBasicNotification(){
+        val title = applicationContext.getString(R.string.notification_title)
+        val desc = applicationContext.getString(R.string.notification_desc)
+
         val notification = NotificationCompat.Builder(applicationContext,"123")
-            .setContentTitle("Titulo")
-            .setContentText("Lorem ipsum dolor sit amet.")
+            .setContentTitle(title)
+            .setContentText(desc)
             .setPriority(NotificationManager.IMPORTANCE_HIGH)
             .setAutoCancel(true)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.notification_icon)
             .build()
         val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(
