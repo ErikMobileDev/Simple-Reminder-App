@@ -2,7 +2,7 @@
 
 **Simple Reminder** es una aplicación de gestión de recordatorios con notificaciones.
 
-## Pantalla principal
+## Pantallas
 
 ![Pantalla principal de la aplicación modo claro](https://raw.githubusercontent.com/ErikMobileDev/Simple-Reminder-App/refs/heads/master/images/light_app.png) ![Pantalla principal de la aplicación modo oscuro](https://raw.githubusercontent.com/ErikMobileDev/Simple-Reminder-App/refs/heads/master/images/dark_app.png)
 
