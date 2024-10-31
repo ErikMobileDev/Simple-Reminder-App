@@ -1,6 +1,6 @@
 # Simple Reminder
 
-**Simple Reminder** es una aplicación de gestión de recordatorios con notificaciones.
+**Simple Reminder** Es una aplicación de gestión de recordatorios que permite a los usuarios recibir recordatorios en un día a una hora especifica.
 
 ## Pantallas
 
