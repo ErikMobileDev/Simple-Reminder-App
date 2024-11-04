@@ -14,7 +14,7 @@
 - **Interfaz intuitiva**: Diseño limpio y fácil de usar que mejora la experiencia del usuario.
 - **Multilenguaje**: Soporta los siguientes idiomas: Inglés y Español.
 - **Navegación**: Interacción entre diferentes secciones de la aplicación.
-- **Modo claro y oscuro**: Permite a los usuarios elegir entre un diseño claro u oscuro según su preferencia.
+- **Modo claro y oscuro**: Diseño claro u oscuro.
 - **Envio de notificaciones**: El usuario recibira una notificación en la fecha y hora escogida
 
 ## Tecnologías Utilizadas
